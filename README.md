@@ -1,0 +1,1 @@
+Service for showing info about Global Assault game profile.
