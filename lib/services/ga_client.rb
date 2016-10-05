@@ -1,23 +1,5 @@
 class GAClient
   class << self
-    # def req_body 
-    #   {
-    #     # 'password'=>'413938e7b5256d185b65557d1bb58ec6',
-    #     # 'user_id'=>'128853001', 
-    #     # 'unity'=>'Unity4_6_6',
-    #     # 'api_stat_name'=>'setRivalViewed',
-    #     # 'api_stat_time'=>'299',
-    #     # 'client_version'=>'27',
-    #     # 'platform'=>'Web',
-    #     # 'name_test'=>'1',
-    #     # 'kong_id'=>'123456',
-    #     # 'kong_token'=>'kong_token',
-    #     # 'kong_name'=>'kong_name',
-    #     # 'no_sync'=>'no_sync',
-    #     # 'data_usage'=>'179418'                  
-    #   }
-    # end
-
     def headers
       {
         "Host" => "havoc.synapse-games.com",
@@ -61,8 +43,7 @@ class GAClient
 
     def map_data(password:, user_id: )
       url = 'https://havoc.synapse-games.com/api.php?message=updateMapData'  
-      # body = JSON.parse( {user_id: user_id, password: password }.to_json )
-      body = JSON.parse({user_id: user_id, password: password}.to_json)
+      body = {user_id: user_id, password: password}
       result = HTTParty.post(url,:body => body,:header => headers)
       return result
     end
